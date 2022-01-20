@@ -25,7 +25,6 @@ background_scroll = 0
 score = 0
 #Game Over Variables
 fade_counter = 0
-fadeboxy= 0
 game_over = False
 #Sounds
 pygame.mixer.music.load('GamesIsuAudio/background_audio.mp3')
@@ -60,6 +59,7 @@ def draw_hud():
     draw_text('Score: ' +str(score) + 'M',font_small, white, 0 ,0)
 class Player():
     def __init__(self, x, y):
+        #Bunny Size
         self.image = pygame.transform.scale(bunny_image, (65, 65))
         self.width = 60
         self.height = 65
@@ -99,8 +99,6 @@ class Player():
                         dy = 0
                         self.vel_y = -20
                         jump_sound.play()
-
-        #Ground Border
 
         #Start Scrolling
         if self.rect.top <= scroll_line:
@@ -159,7 +157,7 @@ platform_group.add(platform)
 bunny = Player(width//2, height - 150)
 
 
-
+#Frames
 clock = pygame.time.Clock()
 clock.tick(FPS)
 run = True
